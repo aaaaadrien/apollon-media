@@ -1,2 +1,2 @@
 # apollon-music
-Simple PHP Music Player with no dependancies
+Simple PHP Media Player with no dependancies
