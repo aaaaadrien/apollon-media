@@ -1,0 +1,17 @@
+# Local configuration (config.php.sample is the committed template)
+/config.php
+
+# Database
+/data/*.db
+/data/*.db-*
+
+# Transcoded video cache
+/data/video_cache/
+
+# User music library
+/music/*
+!/music/.gitkeep
+
+# User video library
+/videos/*
+!/videos/.gitkeep
