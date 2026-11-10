@@ -1,0 +1,65 @@
+<?php
+// Apollon Media - application configuration
+
+define('APP_NAME', 'Apollon Media');
+define('APP_VERSION', (string)filemtime(__DIR__ . '/index.php'));
+
+// Directory scanned for audio files (mp3, m4a, flac, ogg, wav)
+define('MUSIC_DIR', __DIR__ . '/music');
+
+// Directory scanned for video files (movies & series)
+define('VIDEO_DIR', __DIR__ . '/videos');
+
+// SQLite database location
+define('DB_FILE', __DIR__ . '/data/music.db');
+
+// Songs per page (infinite scroll)
+define('PAGE_SIZE', 25);
+
+// Supported audio extensions and their MIME types
+define('AUDIO_EXTENSIONS', ['mp3', 'm4a', 'flac', 'ogg', 'wav']);
+define('AUDIO_MIME_TYPES', [
+  'mp3'  => 'audio/mpeg',
+  'm4a'  => 'audio/mp4',
+  'flac' => 'audio/flac',
+  'ogg'  => 'audio/ogg',
+  'wav'  => 'audio/wav',
+]);
+
+// Supported video extensions and their MIME types
+define('VIDEO_EXTENSIONS', ['mp4', 'm4v', 'mkv', 'webm', 'avi', 'mov', 'ts', 'wmv']);
+define('VIDEO_MIME_TYPES', [
+  'mp4'  => 'video/mp4',
+  'm4v'  => 'video/mp4',
+  'mkv'  => 'video/x-matroska',
+  'webm' => 'video/webm',
+  'avi'  => 'video/x-msvideo',
+  'mov'  => 'video/quicktime',
+  'ts'   => 'video/mp2t',
+  'wmv'  => 'video/x-ms-wmv',
+]);
+
+// Session cookie lifetime (one year)
+define('SESSION_LIFETIME', 31536000);
+
+// Allow new user registration (set to false to hide the Register form)
+define('ALLOW_REGISTRATION', false);
+
+// Allow listening to the library without being logged in (guest mode)
+define('ALLOW_GUEST_LISTEN', false);
+
+// Secret used to sign single-song share tokens (required for the
+// "listen to a shared song" feature when ALLOW_GUEST_LISTEN is false).
+// Generate one with: php -r "echo bin2hex(random_bytes(32));"
+define('SHARE_SECRET', 'CHANGE_ME_64_HEX_CHARS');
+
+// Lifetime of a shared-song token in seconds (0 = never expires)
+define('SHARE_TOKEN_TTL', 0);
+
+// Transcode videos to MP4 (H.264/AAC) for browser playback when the source
+// format is not natively supported (requires ffmpeg + ffprobe on the server)
+define('VIDEO_TRANSCODE', true);
+define('VIDEO_CACHE_DIR', __DIR__ . '/data/video_cache');
+
+// Maximum total size for a single uploaded file (bytes). 5 GB by default.
+define('MAX_UPLOAD_SIZE', 5 * 1024 * 1024 * 1024);

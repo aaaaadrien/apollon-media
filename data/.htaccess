@@ -1,0 +1,2 @@
+# Deny direct web access to application data (SQLite DB, video cache).
+Require all denied
